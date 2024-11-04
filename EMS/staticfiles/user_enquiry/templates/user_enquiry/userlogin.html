@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin signup</title>
+</head>
+<style>
+    body {
+        height: 100vh;
+    }
+    #ulform{
+        height: 507px;
+    }
+</style>
+
+<body>
+    {% extends 'admin_enquiry/base.html' %}
+
+    {% block content %}
+
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-lg-6 col-md-4 col-sm-12 col-10 m-auto shadow">
+                <form action="{% url 'userdashboard' %}" method="POST" id="ulform">
+                    {% csrf_token %}
+                    <h1 style="text-align: center;">User Login</h1>
+                    <h3>{{msg}}</h3>
+
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        {{message}}
+                    </div>
+                    {% endfor%}
+                    {% endif %}
+
+                    <label for="">Email</label>
+                    <input type="text" class="form-control" name="email" required>
+                    <label for="">Password</label>
+                    <input type="text" class="form-control" name="pwd" required>
+
+                    <input type="submit" value="Login" class="btn btn-warning mt-3 mb-3">
+                    <a href="{% url 'usersignup' %}" class="btn btn-primary">SignUp</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+
+</html>

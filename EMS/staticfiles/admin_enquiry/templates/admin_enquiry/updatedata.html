@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>show enquiry</title>
+</head>
+<style>
+    body{
+        height: 100vh;
+    }
+    #uenquirydata{
+        height: 507px;
+        font-size: 19px;
+    }
+</style>
+<body>
+    {% extends 'admin_enquiry/base.html' %}
+
+    {% block content %}
+    <div class="container" id="uenquirydata">
+        <div class="row mt-4">
+            <div class="col-lg-6 col-md-4 col-sm-12 col-10 m-auto shadow p-4">
+                <h1 style="text-align: center;">Student Query Update</h1>
+                <form action="{% url 'update' id.id %}" method="POST">
+                    {% csrf_token %}
+                    <label for="sn">Student Name</label>
+                    <input type="text" class="form-control" value="{{id.stu_name}}" name="sn" id="sn" required>
+                    <label for="cn">Contact</label>
+                    <input type="text" class="form-control" value="{{id.contact}}" name="cn" id="cn" required>
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" value="{{id.email}}" name="email" id="email" required>
+                    <label for="query">Query</label>
+                    <input type="text" class="form-control" value="{{id.query}}" name="query" id="query" required>
+
+                    <input type="submit" value="Update" class="btn btn-primary mt-3">
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

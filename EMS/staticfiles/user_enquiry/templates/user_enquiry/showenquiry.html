@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>show enquiry</title>
+</head>
+<style>
+
+</style>
+<body>
+    {% include 'user_enquiry/usernav.html' %}
+
+    <div class="showenquiry">
+        <p class="display-6 mt-3" style="text-align: center;">Show All Enquiry</p>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Student Name</th>
+                    <th>Contact</th>
+                    <th>Email</th>
+                    <th>Query</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in dat %}
+                <tr>
+                    <td>{{i.id}}</td>
+                    <td>{{i.stu_name}}</td>
+                    <td>{{i.contact}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.query}}</td>
+                    <td><a href="{% url 'update' i.id %}" class="btn btn-primary">Update</a></td>
+                    <td><a href="{% url 'delete' i.id %}" class="btn btn-secondary">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <a href="{% url 'userdashboard' %}" class="btn btn-primary mb-3">Back</a>
+        </table>
+    </div>
+    </div>
+    {% include 'admin_enquiry/footer.html' %}
+</body>
+</html>    
