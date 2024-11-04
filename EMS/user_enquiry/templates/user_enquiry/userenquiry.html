@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user enquiry</title>
+</head>
+<style>
+    body{
+        height: 100vh;
+    }
+    #uenquiry{
+        height: 507px;
+        font-size: 19px;
+    }
+</style>
+<body>
+    {% include 'user_enquiry/usernav.html' %}
+    
+    <div class="container" id="uenquiry">
+        <div class="row mt-4">
+            <div class="col-lg-6 col-md-4 col-sm-12 col-10 m-auto shadow p-4">
+                <h1 style="text-align: center;">Student Query</h1>
+
+                {% if messages %}
+                {% for message in messages %}
+                <p class="alert alert-success alert-dismissible">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                {{message}}
+                </p>
+                {% endfor %}
+                {% endif %}
+
+                <form action="{% url 'querysubmit' %}" method="POST">
+                    {% csrf_token %}
+                    <label for="sn">Student Name</label>
+                    <input type="text" class="form-control" name="sn" id="sn" required>
+                    <label for="cn">Contact</label>
+                    <input type="text" class="form-control" name="cn" id="cn" required>
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" name="email" id="email" required>
+                    <label for="query">Query</label>
+                    <input type="text" class="form-control" name="query" id="query" required>
+
+                    <input type="submit" name="submit"  value="Submit" class="btn btn-primary mt-3">
+                    <a href="{% url 'userdashboard' %}" class="btn btn-primary mt-3">Home</a>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    {% include 'admin_enquiry/footer.html' %}
+</body>
+</html>

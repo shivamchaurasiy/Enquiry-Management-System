@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin signup</title>
+</head>
+<style>
+    body{
+        height: 100vh;
+    }
+    .admindash{
+        height: 507px;
+        text-align: center;
+    }
+
+    
+</style>
+<body>
+    {% include 'user_enquiry/usernav.html' %}
+    
+    <div class="admindash mt-4">
+        <p class="display-5">Welcom to User Dashborad</p>
+        <hr>
+        <p class="display-6">Name : {{request.session.name}}</p>
+        <p class="display-6">Email : {{request.session.email}}</p>
+
+        <p class="display-6 mt-3">For Any Enquiry</p>
+        <div>
+            <a href="{% url 'userlogin' %}" class="btn btn-warning mt-4 mb-4">LogOut</a>
+            <a href="{% url 'userenquiry' %}" class="btn btn-primary">Enquiry Here</a>
+        </div>
+    </div>
+    {% include 'admin_enquiry/footer.html' %}
+</body>
+</html>

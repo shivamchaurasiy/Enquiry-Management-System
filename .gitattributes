@@ -1,0 +1,2 @@
+# This tells Git to use LF for .po files specifically, which should prevent the CRLF warning.
+*.po text eol=lf
