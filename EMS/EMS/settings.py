@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-195&qxlct*1=v^y(9xdemruv-1p9#f2f*cjy*-4&p9ouj+18ik
 DEBUG = True
 
 # this ALLOWED_HOSTS use for when deploy django project in vercel.
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app', 'localhost', '127.0.0.1']
 
 
 # Application definition
